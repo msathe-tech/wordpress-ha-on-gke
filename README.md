@@ -14,26 +14,11 @@ We will use Compute Engine persistent disk CSI Driver to create our storage clas
 
 Use following YAML for the storage class definition.
 ```
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: regionalpd-storageclass
-provisioner: pd.csi.storage.gke.io
-parameters:
-  type: pd-standard
-  replication-type: regional-pd
-volumeBindingMode: WaitForFirstConsumer
-allowedTopologies:
-- matchLabelExpressions:
-  - key: topology.gke.io/zone
-    values:
-    - us-central1-a
-    - us-central1-b
+kubectl apply -f regional-pd-sc.yaml
 ```
 
 ## Step 3 - Deploy Wordpress app on Zone A
 ```
-cd wordpress
 kubectl apply -k ./
 ```
 
