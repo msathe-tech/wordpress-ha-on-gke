@@ -12,14 +12,16 @@ We have used [Kustomize](https://kustomize.io/) to render the final YAML and cre
 For purpose of this demo is to show how GKE provides autohealing and HA for presistent workloads even in case of a zonal failure.
 We will create a [regional GKE cluster] with 2 node pools. Each node pool will be assigned to a particular zone. E.g. Zone A node pool will create nodes only in Zone A, and Zone B node pool will create nodes only in Zone B. 
 
-First, we will deploy the application (2 separate deployments) on Zone A. 
+First, we will deploy the application (2 separate deployments) on Zone A. :neutral_face:
 ![wordpress-deployed-on-zone-a](regional-gke-statefull-app-ha-1.png)
 
-Then we will demonstrate a very unlikely event of a zonal failure by literally deleting the node pool (now you know why we created the node pool for a single/particular zone). 
+Then we will demonstrate a very unlikely event of a zonal failure by literally deleting the node pool (now you know why we created the node pool for a single/particular zone). :worried:
 ![zone-failure](regional-gke-statefull-app-ha-2.png)
 
-And we will watch how GKE recovers the entire Wordpress application (2 stateful apps) on the other zone/node pool. 
+And we will watch how GKE recovers the entire Wordpress application (2 stateful apps) on the other zone/node pool. :star_struck:
 ![auto-recovered-on-other-zone](regional-gke-statefull-app-ha-3.png)
+
+Let us start the demo now! 
 
 ## Step 1 - setup GKE cluster
 Create a **regional** GKE cluster with two node pools
