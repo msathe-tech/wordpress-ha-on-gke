@@ -66,4 +66,8 @@ Or you can use K9s to check the pods getting recreated almost instantaneously on
 
 If the pods end up in the ```Running``` state means they managed to get hold of the PVC required to start the pod. 
 
+<img width="1791" alt="recovered-on-other-zone" src="https://user-images.githubusercontent.com/32221454/171476531-218ec305-761c-4930-9d76-d05fb88c2da8.png">
+
+Once the pods are in a running state try accessing the wordpress site using the same IP address as earlier and make sure you can see the change you made. 
+![Wordpress after recovery](recovered-on-other-zone.png)
 
