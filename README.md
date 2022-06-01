@@ -39,6 +39,9 @@ Or use K9s if you have the tool.
 You can notice that the wordpress application pods are currently deployed on ```us-central1-a``` nodepool. That is because of the ```nodeAffinity``` in the deployments. 
 <img width="1789" alt="wordpress-pods" src="https://user-images.githubusercontent.com/32221454/171472504-4b829107-e91f-4445-9d42-bcb01ef5ea13.png">
 
+Customize the wordpress site you got, setup a user, change the background image, add a post, etc. Basically make some changes that will be persisted. After recovery we should be able to see the changes made to the site to ensure we had the HA working properly.
+<img width="1645" alt="customized-wordpress" src="https://user-images.githubusercontent.com/32221454/171475892-a5fa0bbc-beb2-4ead-a638-efbd3dc6f69a.png">
+
 
 ## Step 5 - Kill a node pool
 To demonstrate failure of a zone just delete a Node Pool. Since our app is deployed on zone A we will delete that node pool. 
