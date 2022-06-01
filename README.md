@@ -46,6 +46,8 @@ To demonstrate failure of a zone just delete a Node Pool. Since our app is deplo
 gcloud container node-pools delete us-central1-a --cluster=<Your-cluster-name>
 ```
 Or you can delete the node pool ```us-central1-a``` from GCP console as well. 
+<img width="1537" alt="delete-node-pool" src="https://user-images.githubusercontent.com/32221454/171474116-85ad54b9-2bb5-4c30-b798-8f0f86972c57.png">
+
 
 Please note, you've to delete it from the **GKE cluster > Nodes** page. 
 
@@ -56,5 +58,9 @@ Please note, you've to delete it from the **GKE cluster > Nodes** page.
 kubectl get po -o wide -w
 ```
 As soon as the pod status shows running you can try accessing the Wordpress app again using the same LB IP as used earlier. 
+Or you can use K9s to check the pods getting recreated almost instantaneously on other node pool. 
+<img width="1792" alt="auto-heal-on-other-zone" src="https://user-images.githubusercontent.com/32221454/171475068-9057d1f4-99ce-4cf9-a905-4e8ba2887138.png">
+
+If the pods end up in the ```Running``` state means they managed to get hold of the PVC required to start the pod. 
 
 
