@@ -1,6 +1,26 @@
 # High Availability for Stateful GKE Workloads
+We will explore the HA and resiliency that GKE offers for stateful workloads. 
+We will use 2-tier wordpress application. This application has 2 persistent deployments - 
+1. MySQL as a relational store
+2. Wordpress app itself that uses the MySQL as well has its own persistent store 
+
 Following is the app architecture that we will deploy on the GKE cluster. 
 ![Wordpress Application Stack](Wordpress%20Architecture.png)
+
+We have used [Kustomize](https://kustomize.io/) to render the final YAML and create a MySQL password dynamically. 
+
+For purpose of this demo is to show how GKE provides autohealing and HA for presistent workloads even in case of a zonal failure.
+We will create a [regional GKE cluster] with 2 node pools. Each node pool will be assigned to a particular zone. E.g. Zone A node pool will create nodes only in Zone A, and Zone B node pool will create nodes only in Zone B. 
+
+First, we will deploy the application (2 separate deployments) on Zone A. 
+![wordpress-deployed-on-zone-a](regional-gke-statefull-app-ha-1.png)
+
+Then we will demonstrate a very unlikely event of a zonal failure by literally deleting the node pool (now you know why we created the node pool for a single/particular zone). 
+![zone-failure](regional-gke-statefull-app-ha-2.png)
+
+And we will watch how GKE recovers the entire Wordpress application (2 stateful apps) on the other zone/node pool. 
+![auto-recovered-on-other-zone](regional-gke-statefull-app-ha-3.png)
+
 ## Step 1 - setup GKE cluster
 Create a **regional** GKE cluster with two node pools
 - us-central1-a: Specify zone **us-central1-a**
