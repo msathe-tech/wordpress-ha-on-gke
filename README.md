@@ -1,5 +1,8 @@
 # High Availability for Stateful GKE Workloads
 We will explore the HA and resiliency that GKE offers for stateful workloads. 
+We will demonstrate how stateful containerized application deployed on GKE can recover from failure of an entire Zone without any operational overheads.
+This shows the extreme resiliency natively offered by GKE and GCP. 
+
 We will use 2-tier wordpress application. This application has 2 persistent deployments - 
 1. MySQL as a relational store
 2. Wordpress app itself that uses the MySQL as well has its own persistent store 
