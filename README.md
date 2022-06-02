@@ -50,6 +50,8 @@ kubectl apply -f regional-pd-sc.yaml
 ```
 kubectl apply -k ./
 ```
+**_Please note_** that I've hardcoded the values for Zone in the deployment YAMLs for simplicity. 
+If you choose another region/zone then please change the values in ```nodeAffinity```
 
 ## Step 4 - Access the Wordperss app
 ```
