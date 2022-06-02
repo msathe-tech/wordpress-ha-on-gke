@@ -66,7 +66,7 @@ You can notice that the wordpress application pods are currently deployed on ```
 Customize the wordpress site you got, setup a user, change the background image, add a post, etc. Basically make some changes that will be persisted. After recovery we should be able to see the changes made to the site to ensure we had the HA working properly.
 ![Wordpress after recovery](customized-wordpress.png)
 
-## Step 5 - Kill an entire _Zone_
+## Step 5 - Kill an entire _Zone A_
 Since the Node Pools we created are specific to a Zone we can delete a Node Pool to demonstrate zonal failure. 
 Since our app is deployed on zone A we will delete that node pool. 
 ```
