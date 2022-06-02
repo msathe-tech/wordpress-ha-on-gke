@@ -78,7 +78,7 @@ Please note, you've to delete it from the **GKE cluster > Nodes** page.
 
 **_NO NOT_ directly delete the VM or VM group.**
 
-## Step 6 - Watch the app come back up and test
+## Step 6 - Auto-heal app on Zone B and test
 ```
 kubectl get po -o wide -w
 ```
