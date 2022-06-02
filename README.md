@@ -8,7 +8,7 @@ We will use 2-tier wordpress application. This application has 2 persistent depl
 2. Wordpress app itself that uses the MySQL as well has its own persistent store 
 
 Following is the app architecture that we will deploy on the GKE cluster. 
-![Wordpress Application Stack](Wordpress%20Architecture.png)
+![Wordpress Application Stack](wordpress_architecture.png)
 
 We have used [Kustomize](https://kustomize.io/) to render the final YAML and create a MySQL password dynamically. 
 
